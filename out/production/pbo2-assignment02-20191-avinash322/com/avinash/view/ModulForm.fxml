@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avinash.controller.ModulController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -17,10 +16,13 @@
             <items>
               <MenuItem mnemonicParsing="false" text="Close">
                      <accelerator>
-                        <KeyCodeCombination alt="DOWN" code="X" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="UP" control="UP" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
             </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="X" control="UP" meta="UP" shift="ANY" shortcut="UP" />
+               </accelerator>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
@@ -63,22 +65,17 @@
                   <TextField fx:id="categoryname" GridPane.columnIndex="3" />
                   <Label text="Category" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" onAction="#savecategoryaction" text="Save Category" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <MenuButton mnemonicParsing="false" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </MenuButton>
-                  <Button mnemonicParsing="false" onAction="#saveaction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveaction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#updateaction" text="Update" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#resetaction" text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateaction" text="Update" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetaction" text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="combobox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <TableView fx:id="table" onMouseClicked="#tableClicked" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="col1" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="col2" prefWidth="75.0" text="Price" />

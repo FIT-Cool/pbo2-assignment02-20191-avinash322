@@ -20,6 +20,9 @@
                      </accelerator>
                   </MenuItem>
             </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="X" control="UP" meta="UP" shift="ANY" shortcut="UP" />
+               </accelerator>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
@@ -62,19 +65,14 @@
                   <TextField fx:id="categoryname" GridPane.columnIndex="3" />
                   <Label text="Category" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" onAction="#savecategoryaction" text="Save Category" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <MenuButton mnemonicParsing="false" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </MenuButton>
-                  <Button mnemonicParsing="false" onAction="#saveaction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveaction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#updateaction" text="Update" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#resetaction" text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateaction" text="Update" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetaction" text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="combobox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <TableView fx:id="table" onMouseClicked="#tableClicked" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
